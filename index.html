@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atelier Jannah Kids - Vestidos de Bautizo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <header class="top-bar">
+    <a href="#" class="logo font-display text-subheading">ATELIER JANNAH</a>
+    <nav class="nav-links font-mono text-caption all-caps">
+      <a href="#inicio">INICIO</a>
+      <a href="tienda.html">COLECCIÓN</a>
+      <a href="#nosotros">NOSOTROS</a>
+      <a href="#contacto" class="nav-btn">CONTACTAR</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <h1 class="font-display text-display hero-headline">ELEGANCIA<br>TRADICIÓN</h1>
+    </section>
+
+    <!-- Dark Band: Products (Tilted Photo Cluster) -->
+    <section id="productos" class="bg-dark cluster-section">
+      <div class="cluster-content">
+        <h2 class="font-display text-heading">NUESTRA COLECCIÓN</h2>
+        <p class="font-mono text-body">
+          Cada prenda nace del amor por la costura y el deseo de hacer del bautizo de tu hijo un recuerdo inolvidable. Trabajamos con materiales nobles como el lino, el algodón orgánico, el satén y el encaje artesanal.
+        </p>
+        <span class="icon-badge" aria-label="Icono decorativo">
+          <svg viewBox="0 0 24 24">
+            <path stroke-linecap="square" stroke-linejoin="miter" d="M12 2L2 12h3v8h14v-8h3L12 2z"></path>
+          </svg>
+        </span>
+      </div>
+      <div class="tilted-cluster">
+        <img src="https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=600&q=80" alt="Vestido de bautizo clásico" class="photo-1" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1585487000160-6eb2f0e1c6a6?w=600&q=80" alt="Vestido de bautizo moderno" class="photo-2" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1607453998774-d533f65dac99?w=600&q=80" alt="Accesorios de bautizo" class="photo-3" loading="lazy" />
+      </div>
+    </section>
+
+    <!-- Light Band: About -->
+    <section id="nosotros" class="bg-light about-section">
+      <div class="about-image-container">
+        <img src="./assets/about.png" alt="Confección artesanal" class="about-image" loading="lazy" />
+      </div>
+      <div class="about-content">
+        <h2 class="font-display text-heading">SOBRE NOSOTROS</h2>
+        <p class="font-mono text-body">
+          Confeccionamos diseños contemporáneos y clásicos bajo pedido. Cada detalle está pensado para la comodidad de los más pequeños. Puedes conocer más detalles de nuestro trabajo en <a href="#" class="inline-link font-serif">nuestra bitácora de diseño</a>.
+        </p>
+        <p class="font-mono text-body">
+          Atendemos a toda la República Mexicana con envíos seguros y puntuales para que el traje perfecto llegue a tiempo a tus manos.
+        </p>
+      </div>
+    </section>
+
+    <!-- Light Band: Contact -->
+    <section id="contacto" class="bg-light contact-section">
+      <div>
+        <h2 class="font-display text-heading">CONTACTO</h2>
+        <p class="font-mono text-body">Escríbenos y con gusto te atenderemos. Resolvemos todas las dudas sobre medidas y envíos.</p>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <input type="text" placeholder="NOMBRE" required />
+        <input type="email" placeholder="CORREO ELECTRÓNICO" required />
+        <textarea rows="4" placeholder="MENSAJE" required></textarea>
+        <button type="submit">ENVIAR MENSAJE</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-caption font-mono text-caption all-caps">
+      ATELIER JANNAH KIDS<br>
+      CIUDAD DE MÉXICO, MX<br>
+      © 2026 TODOS LOS DERECHOS RESERVADOS.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('MENSAJE RECIBIDO. TE CONTACTAREMOS PRONTO.');
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
