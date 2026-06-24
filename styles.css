@@ -2,7 +2,7 @@
 
 :root {
   /* Colors */
-  --color-highlighter-mint: #e2ffcc;
+  --color-highlighter-mint: #e3c692; /* Champagne Gold */
   --color-sage-stone: #84907f;
   --color-carbon-ink: #161b13;
   --color-forest-charcoal: #2d3329;
@@ -154,7 +154,7 @@ section {
 /* Hero */
 .hero {
   min-height: 100dvh;
-  background: url('./assets/hero.png') center/cover no-repeat;
+  background: url('./assets/hero.jpg') center/cover no-repeat;
   padding: 0; /* Remove default padding for full bleed image */
   display: flex;
   align-items: flex-end; /* Align headline to bottom */
