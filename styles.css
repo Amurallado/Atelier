@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+  /* Colors */
+  --color-highlighter-mint: #e2ffcc;
+  --color-sage-stone: #84907f;
+  --color-carbon-ink: #161b13;
+  --color-forest-charcoal: #2d3329;
+  --color-topo-gray: #dde2e4;
+  --color-pure-black: #000000;
+
+  /* Typography — Font Families */
+  --font-display: 'Bebas Neue', 'F37stout', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Space Mono', 'mono', ui-monospace, monospace;
+  --font-serif: 'Times New Roman', Times, serif;
+
+  /* Typography — Scale */
+  --text-caption: clamp(0.625rem, 0.5rem + 0.5dvw, 0.75rem); /* 10px - 12px */
+  --text-body: clamp(0.875rem, 0.8rem + 0.3dvw, 1rem); /* 14px - 16px */
+  --text-subheading: clamp(2rem, 1.5rem + 2dvw, 2.5rem); /* 32px - 40px */
+  --text-heading: clamp(2.5rem, 2rem + 3dvw, 3rem); /* 40px - 48px */
+  --text-display: clamp(4rem, 2rem + 18dvw, 22.875rem); /* up to 366px */
+
+  /* Spacing Base Unit (6px -> 0.375rem) */
+  --spacing-5: 0.3125rem;
+  --spacing-12: 0.75rem;
+  --spacing-16: 1rem;
+  --spacing-24: 1.5rem;
+  --spacing-40: 2.5rem;
+  --spacing-67: 4.1875rem;
+  --spacing-70: 4.375rem;
+  --spacing-190: 11.875rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Enforce 0px border-radius and no shadows everywhere per design */
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html, body {
+  overflow-x: hidden;
+  background-color: var(--color-topo-gray);
+  color: var(--color-forest-charcoal);
+  font-family: var(--font-mono);
+  font-size: 16px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  scroll-behavior: smooth;
+}
+
+/* Utilities */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: normal;
+  text-transform: uppercase;
+}
+.font-mono {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.font-serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: normal;
+}
+.all-caps { text-transform: uppercase; }
+
+.text-display { font-size: var(--text-display); }
+.text-heading { font-size: var(--text-heading); }
+.text-subheading { font-size: var(--text-subheading); }
+.text-body { font-size: var(--text-body); }
+.text-caption { font-size: var(--text-caption); }
+
+.bg-dark {
+  background-color: var(--color-carbon-ink);
+  color: var(--color-highlighter-mint);
+}
+.bg-light {
+  background-color: var(--color-topo-gray);
+  color: var(--color-forest-charcoal);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+p {
+  max-width: 65ch; /* Limit width for readability */
+  margin-bottom: var(--spacing-16);
+}
+
+/* Sections */
+section {
+  width: 100dvw;
+  padding: var(--spacing-70) var(--spacing-24);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header & Nav */
+.top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-24);
+  z-index: 100;
+}
+.logo {
+  color: var(--color-highlighter-mint);
+}
+.nav-links {
+  display: flex;
+  gap: var(--spacing-24);
+  align-items: center;
+}
+.nav-links a {
+  color: var(--color-highlighter-mint);
+  transition: transform 0.2s, opacity 0.2s;
+}
+.nav-links a:hover {
+  opacity: 0.7;
+}
+.nav-btn {
+  border: 1px solid var(--color-highlighter-mint);
+  padding: var(--spacing-12) var(--spacing-16);
+  background: transparent;
+  color: var(--color-highlighter-mint);
+  cursor: pointer;
+}
+.nav-btn:hover {
+  transform: translateY(1px);
+}
+/* Ensure dark mode text on top bar if over light background */
+.top-bar.light-theme .logo,
+.top-bar.light-theme .nav-links a,
+.top-bar.light-theme .nav-btn {
+  color: var(--color-forest-charcoal);
+  border-color: var(--color-forest-charcoal);
+}
+
+/* Hero */
+.hero {
+  min-height: 100dvh;
+  background: url('./assets/hero.png') center/cover no-repeat;
+  padding: 0; /* Remove default padding for full bleed image */
+  display: flex;
+  align-items: flex-end; /* Align headline to bottom */
+}
+.hero-headline {
+  color: var(--color-highlighter-mint);
+  mix-blend-mode: normal; /* In case we want overlapping effects */
+  margin-left: -5px; /* Optical alignment */
+  margin-bottom: 5dvh;
+  padding: 0 var(--spacing-24);
+  width: 100dvw;
+  word-wrap: break-word;
+}
+
+/* Tilted Photo Cluster Section */
+.cluster-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-67);
+  padding-top: var(--spacing-70);
+  padding-bottom: var(--spacing-70);
+}
+
+@media (min-width: 768px) {
+  .cluster-section {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.tilted-cluster {
+  position: relative;
+  width: 100%;
+  height: 50dvh;
+  min-height: 400px;
+  flex: 1;
+}
+.tilted-cluster img {
+  position: absolute;
+  width: clamp(200px, 40dvw, 360px);
+  object-fit: cover;
+  aspect-ratio: 3/4;
+}
+.photo-1 {
+  top: 10%;
+  left: 10%;
+  transform: rotate(-8deg);
+  z-index: 1;
+}
+.photo-2 {
+  top: 5%;
+  left: 30%;
+  transform: rotate(12deg);
+  z-index: 2;
+}
+.photo-3 {
+  top: 25%;
+  left: 45%;
+  transform: rotate(4deg);
+  z-index: 3;
+}
+
+.cluster-content {
+  flex: 1;
+  padding: 0 var(--spacing-24);
+}
+.icon-badge {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1.5px solid var(--color-highlighter-mint);
+  border-radius: 50% !important; /* The only exception for the circle badge */
+  margin-top: var(--spacing-24);
+}
+.icon-badge svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--color-highlighter-mint);
+  stroke-width: 1.5px;
+  fill: none;
+}
+
+/* Light Band - About */
+.about-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-40);
+}
+@media (min-width: 768px) {
+  .about-section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.about-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.inline-link {
+  font-family: var(--font-serif);
+  color: var(--color-forest-charcoal);
+  text-decoration: underline;
+  font-size: 1rem;
+}
+.about-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 50dvh;
+}
+
+/* Contact Section */
+.contact-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-40);
+}
+@media (min-width: 768px) {
+  .contact-section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  max-width: 600px;
+}
+.contact-form input,
+.contact-form textarea {
+  background: transparent;
+  border: 1px solid var(--color-forest-charcoal);
+  padding: var(--spacing-16);
+  font-family: var(--font-mono);
+  font-size: var(--text-body);
+  color: var(--color-forest-charcoal);
+  outline: none;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-width: 2px;
+}
+.contact-form button {
+  border: 1px solid var(--color-forest-charcoal);
+  background: transparent;
+  color: var(--color-forest-charcoal);
+  padding: var(--spacing-16) var(--spacing-24);
+  font-family: var(--font-mono);
+  font-size: var(--text-body);
+  cursor: pointer;
+  text-transform: uppercase;
+  text-align: left;
+  transition: background 0.2s, color 0.2s;
+}
+.contact-form button:hover {
+  background: var(--color-forest-charcoal);
+  color: var(--color-topo-gray);
+}
+
+/* Footer */
+.footer {
+  width: 100dvw;
+  background-color: var(--color-carbon-ink);
+  color: var(--color-highlighter-mint);
+  padding: var(--spacing-40) var(--spacing-24) var(--spacing-40) var(--spacing-190);
+  display: flex;
+  justify-content: flex-end;
+}
+.footer-caption {
+  text-align: right;
+  max-width: 300px;
+}
+
+/* Store / Zig-Zag Layout */
+.hero-shop {
+  min-height: 40dvh;
+  padding-top: var(--spacing-190);
+}
+
+.zig-zag-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-67);
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .zig-zag-item {
+    flex-direction: row;
+  }
+  .zig-zag-item.reverse {
+    flex-direction: row-reverse;
+  }
+}
+.zz-img {
+  flex: 1;
+  width: 100%;
+}
+.zz-img img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+}
+.zz-text {
+  flex: 1;
+  padding: 0 var(--spacing-40);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-24);
+}
+.btn-dark {
+  border-color: var(--color-forest-charcoal);
+  color: var(--color-forest-charcoal);
+}
